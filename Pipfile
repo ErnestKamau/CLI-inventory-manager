@@ -7,7 +7,7 @@ name = "pypi"
 sqlalchemy = "*"
 tabulate = "*"
 python-dotenv = "*"
-
+alembic = "*"
 
 [dev-packages]
 
