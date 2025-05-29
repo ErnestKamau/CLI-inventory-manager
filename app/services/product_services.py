@@ -10,7 +10,7 @@ def get_all():
     return products
     
     
-def add_product(product_name: str, price: float, stock_quantity: int, category_id: int):
+def create_product(product_name: str, price: float, stock_quantity: int, category_id: int):
     session = Session()
     
     product = Product(
