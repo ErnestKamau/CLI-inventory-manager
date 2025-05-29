@@ -1,6 +1,6 @@
 from app.services.product_services import get_all, create_product, find_by_name, delete_product
 from app.services.sale_services import create_sale, get_all_sales,delete_sale, find_sale_by_id
-
+from app.cli.category_menu import category_menu
 
 
 def products_menu():
@@ -21,15 +21,15 @@ def products_menu():
             category_id = input("Category ID of Product: ")
             product = create_product(product_name=name, price=price, stock_quantity=stock_quantity, category_id=category_id)
                     
-            print("Succesfully created product")
+            print("\n Succesfully created product")
                     
         elif choice == "2":
             p = input("Enter product name: ")
             search = find_by_name(p)
             if search:
-                print (search)
+                print (f"\n {search}")
             else:
-                print("Product Not Found!")
+                print("\n Product Not Found!")
         
                 
                         
@@ -98,14 +98,17 @@ def sale():
 def main_menu():
     while True:
         print("\n--- Inventory manager ----")
-        print("1.Categories")
+        print("1. Categories")
         print("2. Products")
         print("3. Sale")
         print("4. Exit")
         
         first_choice = input("Select an option 1 - 4: ")
         
-        if first_choice == "2":
+        if first_choice == "1":
+            category_menu()
+        
+        elif first_choice == "2":
             products_menu()
             
         elif first_choice == "3":

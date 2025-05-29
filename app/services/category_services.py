@@ -10,6 +10,11 @@ def create_category(category_name: str):
     session.commit()
     return category
 
+def get_all_categories():
+    session = Session()
+    rows = session.query(Category).all()
+    session.close()
+    return rows
 
 def find_category_by_name(name: str):
     session = Session()
