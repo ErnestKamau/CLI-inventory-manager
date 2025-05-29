@@ -11,4 +11,4 @@ class Category(Base):
     products = relationship('Product', backref=backref('category'))
     
     def __repr__(self):
-        return f"<Category: {self.id}, {self.name}>"
+        return f"<Category: {self.id}, {self.category_name}>"
