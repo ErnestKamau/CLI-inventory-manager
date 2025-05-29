@@ -1,5 +1,5 @@
 from app.services.product_services import get_all, create_product, find_by_name, delete_product
-from app.services.sale_services import create_sale, get_all,delete_sale, find_sale_by_id
+from app.services.sale_services import create_sale, get_all_sales,delete_sale, find_sale_by_id
 
 
 
@@ -26,10 +26,12 @@ def products_menu():
         elif choice == "2":
             p = input("Enter product name: ")
             search = find_by_name(p)
-            if search == False:
-                print("Product Not Found!")
-            else:
+            if search:
                 print (search)
+            else:
+                print("Product Not Found!")
+        
+                
                         
         elif choice == "3":
             products = get_all()
@@ -66,7 +68,7 @@ def sale():
             print("proceed to add the sale items: ")
         
         elif c == "2":
-            sales = get_all()
+            sales = get_all_sales()
             for x in sales:
                 print (x)
                 

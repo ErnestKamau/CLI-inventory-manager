@@ -11,7 +11,7 @@ def create_sale(employee: str):
     session.commit()
     return sale
 
-def get_all():
+def get_all_sales():
     session = Session()
     sales = session.query(Sale).all()
     session.close()
@@ -26,7 +26,7 @@ def find_sale_by_id(id: int):
 def delete_sale(del_id: int):
     session = Session()
     
-    d = find_by_id(del_id)
+    d = find_sale_by_id(del_id)
     if d :
         session.delete(d)
         session.commit()
