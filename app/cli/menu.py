@@ -1,47 +1,126 @@
 from app.services.product_services import get_all, create_product, find_by_name, delete_product
+from app.services.sale_services import create_sale, get_all,delete_sale, find_sale_by_id
 
-def main_menu():
+
+
+def products_menu():
     while True:
-        print("\n--- Inventory manager ----")
+        print("\n ----- PRODUCTS MENU -----")
         print("1. Add Product")
         print("2. Search For Product by Name")
         print("3. View all Products")
         print("4. Delete product(By ID)")
         print("5. Exit")
-        
+                
         choice = input("Select an option 1 - 3: ")
-        
+                
         if choice == "1":
             name = input("Name of the product: ")
             price = input("Price of product: ")
             stock_quantity = input("Quantity of Product in Stock: ")
             category_id = input("Category ID of Product: ")
             product = create_product(product_name=name, price=price, stock_quantity=stock_quantity, category_id=category_id)
-            
+                    
             print("Succesfully created product")
-            
+                    
         elif choice == "2":
             p = input("Enter product name: ")
             search = find_by_name(p)
-            
             if search == False:
                 print("Product Not Found!")
             else:
                 print (search)
-                
+                        
         elif choice == "3":
             products = get_all()
             for p in products:
                 print(p)
-        
+                
         elif choice == "4":
             item_to_del = input("Enter ID of Product to Delete: ")
             delete_product(item_to_del)
             
         elif choice == "5":
             break
+        
         else:
             print("Invalid choice. Try again.")
+            
+            
+            
+def sale():
+    while True:
+        print("\n--- SALES MENU ----")
+        print("1. Create a Sale")
+        print("2. View all Sales")
+        print("3. Search for Sale (By_id)")
+        print("4. Delete sale")
+        print("5. Exit")
+        
+        c = input("Select an option (1 - 5): ")
+        
+        if c == "1":
+            name = input("Name of employee: ")
+            i = create_sale(name)
+            print ("sale created succesfully!")
+            print("proceed to add the sale items: ")
+        
+        elif c == "2":
+            sales = get_all()
+            for x in sales:
+                print (x)
+                
+        elif c == "3":
+            sale_id = input("Enter the Sale ID: ")
+            q = find_sale_by_id(sale_id)
+            if q:
+                print(q)
+            else:
+                print("Sale not Found!")
+                
+        elif c == "4":
+            sale_to_del = input("Enter ID of Sale to be Deleted: ")
+            delete_sale(sale_to_del)
+            
+        elif c == "5":
+            break
+        
+        else:
+            print("Invalid Choice Try again!")
+        
+
+
+
+
+
+def main_menu():
+    while True:
+        print("\n--- Inventory manager ----")
+        print("1.Categories")
+        print("2. Products")
+        print("3. Sale")
+        print("4. Exit")
+        
+        first_choice = input("Select an option 1 - 4: ")
+        
+        if first_choice == "2":
+            products_menu()
+            
+        elif first_choice == "3":
+            sale()
+        
+        elif first_choice == "4":
+            break
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
         
         
             
