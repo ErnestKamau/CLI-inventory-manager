@@ -18,7 +18,7 @@ def main_menu():
             category_id = input("Category ID of Product: ")
             product = create_product(product_name=name, price=price, stock_quantity=stock_quantity, category_id=category_id)
             
-            print(f"Succesfully created: {product}")
+            print("Succesfully created product")
             
         elif choice == "2":
             p = input("Enter product name: ")
@@ -27,7 +27,7 @@ def main_menu():
             if search == False:
                 print("Product Not Found!")
             else:
-                return search
+                print (search)
                 
         elif choice == "3":
             products = get_all()
