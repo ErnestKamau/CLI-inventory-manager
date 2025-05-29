@@ -6,7 +6,9 @@ def category_menu():
         print("\n ----- CATEGORY MENU -----")
         print("1. Create Category")
         print("2. Find Category")
-        print("3. Delete Category")
+        print("3. View all Category")
+        print("4. Delete Category")
+        print("5. Exit")
         
         choice = input("Select an option (1 - 3): ")
         
