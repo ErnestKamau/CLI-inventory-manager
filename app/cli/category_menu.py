@@ -20,7 +20,7 @@ def category_menu():
         elif choice =="2":
             f = input("Name of category: ")
             r = find_category_by_name(f)
-            if r:
+            if r == True:
                 print(f"\n {r}")
             else:
                 print("\n category not found!")
