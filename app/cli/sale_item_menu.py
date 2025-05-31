@@ -20,14 +20,14 @@ def sale_items():
             prompt = input("Enter Sale Item ID: ")
             s = find_by_id(prompt)
             if prompt:
-                print(s)
+                print(f" \n {s}")
             else:
                 print("Item Not Found!")
                 
         elif choice == "3":
             r = int(input("Sale Item ID: "))
             q = get_product_name(r)
-            print(q)
+            print(f"\n {q}")
             
         elif choice == "4":
             w = input("Enter Sale ID of Sale Item to remove: ")
