@@ -32,11 +32,11 @@ def products_menu():
             else:
                 print("\n Product Not Found!")
         
-                             
+                            
         elif choice == "3":
             products = get_all()
             for p in products:
-                print(p)
+                print(f"\n {p}")
                 
         elif choice == "4":
             item_to_del = input("Enter ID of Product to Delete: ")
@@ -91,13 +91,13 @@ def sale():
         elif c == "2":
             sales = get_all_sales()
             for x in sales:
-                print (x)
+                print (f"\n {x}")
                 
         elif c == "3":
             sale_id = input("Enter the Sale ID: ")
             q = find_sale_by_id(sale_id)
             if q:
-                print(q)
+                print(f"\n {q}")
             else:
                 print("Sale not Found!")
                 

@@ -10,11 +10,11 @@ def sale_items():
         print("5. Exit")
         
         choice = input("Select an option(1 - 4): ")
-        
+       
         if choice == "1":
             sale_item = get_all_sale_items()
             for i in sale_item:
-                print(i)
+                print(f"\n {i}")
                 
         elif choice == "2":
             prompt = input("Enter Sale Item ID: ")
@@ -41,4 +41,4 @@ def sale_items():
             break
         
         else:
-            print("Invalid Choice")
+            print("\n Invalid Choice")
