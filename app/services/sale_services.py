@@ -3,12 +3,13 @@ from app.models.sale import Sale
 
 def create_sale(employee: str):
     session = Session()
-    
+   
     sale = Sale(
         employee_name = employee
     )
     session.add(sale)
     session.commit()
+    session.refresh(sale)
     return sale
 
 def get_all_sales():

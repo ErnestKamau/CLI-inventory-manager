@@ -2,8 +2,18 @@ from app.db.session import Session
 from app.models.sale_item import SaleItem
 from app.models.product import Product
 
+
+
 def create_sale_item(quantity: int, unit_price: float, sale_id: int,  product_id: int):
     session = Session()
+    
+    product = session.query(Product).filter_by(id=product_id).first()
+    if not product:
+        raise ValueError("Product not found")
+    
+    product.stock_quantity -= quantity
+
+
     item_for_sale = SaleItem(
         quantity=quantity,
         unit_price=unit_price,

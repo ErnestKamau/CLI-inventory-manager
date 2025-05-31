@@ -1,7 +1,8 @@
 from app.services.product_services import get_all, create_product, find_by_name, delete_product
 from app.services.sale_services import create_sale, get_all_sales,delete_sale, find_sale_by_id
 from app.cli.category_menu import category_menu
-
+from app.services.sale_item_services import create_sale_item
+from app.cli.sale_item_menu import sale_items
 
 def products_menu():
     while True:
@@ -31,8 +32,7 @@ def products_menu():
             else:
                 print("\n Product Not Found!")
         
-                
-                        
+                             
         elif choice == "3":
             products = get_all()
             for p in products:
@@ -50,6 +50,21 @@ def products_menu():
             
             
             
+def add_sale_items(sale_id):
+    while True:
+        print("\n ----- CREATE SALE ITEMS-----")
+        quantity = int(input("Quantity: "))
+        unit_price = input("Price (per unit): ")
+        product_id = input("Product ID: ")
+        
+        create_sale_item(quantity=quantity, unit_price=unit_price, product_id=product_id, sale_id=sale_id)
+        print("\n Successfully created Sale item")
+        
+        prompt = input("Add another sale item (y/n): ").lower()
+        if prompt != 'y':
+            break         
+            
+            
 def sale():
     while True:
         print("\n--- SALES MENU ----")
@@ -63,10 +78,15 @@ def sale():
         
         if c == "1":
             name = input("Name of employee: ")
-            i = create_sale(name)
-            print ("sale created succesfully!")
-            print("proceed to add the sale items: ")
-        
+            new_sale = create_sale(name)
+            print("Sale created successfully!")
+            print(f"\nThe sale id of this sale is {new_sale.id}")
+            print("\nProceed to add the sale items:")
+            
+            add_sale_items(new_sale.id)
+            
+            
+            
         elif c == "2":
             sales = get_all_sales()
             for x in sales:
@@ -101,7 +121,8 @@ def main_menu():
         print("1. Categories")
         print("2. Products")
         print("3. Sale")
-        print("4. Exit")
+        print("4. Sale Items")
+        print("5. Exit")
         
         first_choice = input("Select an option 1 - 4: ")
         
@@ -113,8 +134,11 @@ def main_menu():
             
         elif first_choice == "3":
             sale()
-        
+            
         elif first_choice == "4":
+            sale_items()
+        
+        elif first_choice == "5":
             break
             
             
