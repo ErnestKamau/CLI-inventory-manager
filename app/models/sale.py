@@ -15,6 +15,7 @@ class Sale(Base):
         backref=backref('sale'),
         cascade="all, delete-orphan"
         )
-    
+   
     def __repr__(self):
-        return f"<Sale_id={self.id} : date={self.date}, employee_name={self.employee_name}"
+        formatted_date = self.date.strftime("%Y-%m-%d %H:%M:%S")
+        return f"<Sale_id={self.id} : date={formatted_date}, employee_name={self.employee_name}>"
