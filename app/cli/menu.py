@@ -48,14 +48,15 @@ def products_menu():
         else:
             print("Invalid choice. Try again.")
             
-            
+           
             
 def add_sale_items(sale_id):
     while True:
         print("\n ----- CREATE SALE ITEMS-----")
+        product_id = input("Product ID: ")
         quantity = int(input("Quantity: "))
         unit_price = input("Price (per unit): ")
-        product_id = input("Product ID: ")
+        
         
         create_sale_item(quantity=quantity, unit_price=unit_price, product_id=product_id, sale_id=sale_id)
         print("\n Successfully created Sale item")

@@ -9,7 +9,7 @@ def get_all():
     session.close()
     return products
     
-    
+     
 def create_product(product_name: str, price: float, stock_quantity: int, category_id: int):
     session = Session()
     
