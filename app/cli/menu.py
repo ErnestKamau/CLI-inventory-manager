@@ -7,14 +7,23 @@ from app.cli.sale_item_menu import sale_items
 def update_product_menu():
     while True:
         print("\n--- Update Product Menu ---")
-
+        
+        products = get_all()
+        if not products:
+            print("No products available to update.")
+            return
+        for product in products:
+            print(f"ID: {product.id} | Name: {product.product_name} | Price: {product.price} | Stock: {product.stock_quantity}")
+        
+        
         c = input("Proceed to update Product (y/n): ")
         if c == "y":
             product_id = int(input("Enter the Product ID of Product to update: "))
-        
-            print("1. Update name")
-            print("2. Update price")
-            print("3. Update quantity")
+       
+            print("\nWhat would you like to update?")
+            print("1. Name")
+            print("2. Price")
+            print("3. Quantity")
             choice = input("Select an option (1-3): ")
             
             if choice == '1':

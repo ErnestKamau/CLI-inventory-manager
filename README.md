@@ -6,19 +6,11 @@ Interface: Command-Line Interface (CLI)
 
 
 # Features
-Manage Products (create, delete, list, find by ID, view by category)
-
-Manage Categories (create, delete, list, view products)
-
-Manage Sales
-
-Manage Sale Items
-
-Track inventory levels
-
-Interactive CLI with menus and input validation
-
-Persistent SQLite database using SQLAlchemy ORM
+- Manage categories (Create, Read, Update, Delete)
+- Manage products (Create, Read, Update, Delete)
+- Record sales and related sale items
+- Track inventory and stock quantities
+- Built with SQLAlchemy ORM, Alembic for migrations, and a clean modular structure
 
 
 # DESCRIPTION
@@ -36,5 +28,81 @@ Persistent SQLite database using SQLAlchemy ORM
 
 - Easily navigate and manage data using CLI menus.
 
+# Project Structure
+
+CLI-inventory-manager/
+├── alembic.ini
+├── app/
+│   ├── cli/           # CLI menu logic
+│   ├── db/            # DB session and connection
+│   ├── models/        # SQLAlchemy models
+│   ├── services/      # CRUD logic for each model
+├── app.py             # Entry point
+├── migrations/        # Alembic migration scripts
+├── Pipfile            # Pipenv dependency manager
+├── Pipfile.lock
+└── README.md
 
 
+# Getting Started
+- Follow these steps to clone and run the project on your machine.
+
+# Prerequisites
+Python 3.8 or later
+pipenv installed globally
+
+## Setup Instructions
+# 1. Clone the repo
+git clone https://github.com/your-username/CLI-inventory-manager.git
+cd CLI-inventory-manager
+
+
+# 2. Install dependencies
+pipenv install
+
+# 3. Activate virtual environment
+pipenv shell
+
+# 4. Run database migrations
+- This will create the app/db/inventory.db file and tables.
+
+alembic upgrade head
+
+
+# 5. Run the CLI app
+python app.py
+
+- or
+
+./app.py
+
+
+## How to Use
+- Once the app launches, navigate using the menu prompts.
+
+--- Inventory manager ----
+1. Categories
+2. Products
+3. Sale
+4. Exit
+Select an option 1 - 4:
+
+
+# Each menu allows the following:
+- View existing entries
+- Create new entries
+- Update or delete entries
+- Record a sale (and select products + quantities)
+- View sales 
+
+## Technologies Used
+- Python 3
+- SQLAlchemy ORM
+- SQLite
+- Alembic
+- Pipenv
+
+## Author
+- Ernest
+- Student Software Developer @ Flatiron School
+- GitHub: github.com/ErnestKamau
