@@ -6,8 +6,7 @@ def sale_items():
         print("1. Get all Sale Items")
         print("2. Search for Sale Item (By ID)")
         print("3. Get Sale Item's Product name (By ID)")
-        print("4. Delete Sale Item")
-        print("5. Exit")
+        print("4. Exit")
         
         choice = input("Select an option(1 - 4): ")
        
@@ -30,14 +29,6 @@ def sale_items():
             print(f"\n {q}")
             
         elif choice == "4":
-            w = input("Enter Sale ID of Sale Item to remove: ")
-            f = find_by_id(w)
-            if f:
-                delete_sale_item(w)
-            else:
-                print("Item Not Found!")
-            
-        elif choice == "5":
             break
         
         else:
