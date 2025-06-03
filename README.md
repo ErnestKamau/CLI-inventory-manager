@@ -1,5 +1,4 @@
 # CLI-inventory-manager
-Tech: Python, SQLAlchemy ORM, SQLite, Pipenv
 Interface: Command-Line Interface (CLI)
 
 - A Python-based Inventory Management System that allows users to manage products, track stock levels, organize categories, and record sales—all from the terminal. Designed with clean OOP principles and a normalized relational schema using SQLAlchemy ORM.
@@ -28,20 +27,6 @@ Interface: Command-Line Interface (CLI)
 
 - Easily navigate and manage data using CLI menus.
 
-# Project Structure
-
-CLI-inventory-manager/
-├── alembic.ini
-├── app/
-│   ├── cli/           # CLI menu logic
-│   ├── db/            # DB session and connection
-│   ├── models/        # SQLAlchemy models
-│   ├── services/      # CRUD logic for each model
-├── app.py             # Entry point
-├── migrations/        # Alembic migration scripts
-├── Pipfile            # Pipenv dependency manager
-├── Pipfile.lock
-└── README.md
 
 
 # Getting Started
