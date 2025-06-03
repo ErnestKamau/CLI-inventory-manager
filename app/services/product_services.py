@@ -42,3 +42,40 @@ def delete_product(product_id: int):
         session.delete(product)
         session.commit()
     return product
+
+def update_product_name(product_id: int, new_name: str):
+    session = Session()
+    product = session.query(Product).filter_by(id=product_id).first()
+    if not product:
+        raise ValueError(f"Product with ID {product_id} not found.")
+    
+    product.product_name = new_name
+    session.commit()
+    return product
+
+
+def update_product_price(product_id: int, new_price: float):
+    session = Session()
+    product = session.query(Product).filter_by(id=product_id).first()
+    if not product:
+        raise ValueError(f"Product with ID {product_id} not found.")
+    
+    if new_price < 0:
+        raise ValueError("Price cannot be negative.")
+    
+    product.price = new_price
+    session.commit()
+    return product
+
+def update_product_quantity(product_id: int, new_quantity: int):
+    session = Session()
+    product = session.query(Product).filter_by(id=product_id).first()
+    if not product:
+        raise ValueError(f"Product with ID {product_id} not found.")
+    
+    if new_quantity < 0:
+        raise ValueError("Quantity cannot be negative.")
+    
+    product.stock_quantity = new_quantity
+    session.commit()
+    return product

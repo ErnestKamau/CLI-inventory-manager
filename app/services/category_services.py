@@ -22,6 +22,16 @@ def find_category_by_name(name: str):
     session.close()
     print(q)
     
+def update_category_name(category_id: int, new_name: str):
+    session = Session()
+    category = session.query(Category).filter_by(id=category_id).first()
+    if not category:
+        raise ValueError(f"Category with ID {category_id} not found.")
+    
+    category.category_name = new_name
+    session.commit()
+    return category
+    
     
 def delete_category(c_name: str):
     session = Session()
@@ -29,4 +39,4 @@ def delete_category(c_name: str):
     d = find_category_by_name(c_name)
     session.delete(d)
     session.commit
-    
+   
