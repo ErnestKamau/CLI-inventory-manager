@@ -1,4 +1,4 @@
-from app.services.category_services import create_category, find_category_by_name, delete_category, get_all_categories
+from app.services.category_services import create_category, find_category_by_name, delete_category, get_all_categories, update_category_name
 
 
 def category_menu():
@@ -8,8 +8,10 @@ def category_menu():
         print("2. Find Category")
         print("3. View all Category")
         print("4. Delete Category")
-        print("5. Exit")
+        print("5. Update Category name")
+        print("6. Exit")
         
+    
         choice = input("Select an option (1 - 3): ")
         
         if choice == "1":
@@ -20,10 +22,9 @@ def category_menu():
         elif choice =="2":
             f = input("Name of category: ")
             r = find_category_by_name(f)
-            if r == True:
+            if r:
                 print(f"\n {r}")
-            else:
-                print("\n category not found!")
+            
         
         elif choice =="3":
             rows = get_all_categories()
@@ -37,6 +38,14 @@ def category_menu():
             print("\n Removed Succesfully!")
             
         elif choice == "5":
+            category_id = int(input("Enter the Category ID to update: "))
+            new_name = input("Enter the new name: ")
+            updated = update_category_name(category_id, new_name)
+            print("Category updated successfully:")
+            print(updated)
+            
+            
+        elif choice == "6":
             break
         
         else:

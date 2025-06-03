@@ -1,8 +1,42 @@
-from app.services.product_services import get_all, create_product, find_by_name, delete_product
+from app.services.product_services import get_all, create_product, find_by_name, delete_product, update_product_name, update_product_price, update_product_quantity
 from app.services.sale_services import create_sale, get_all_sales,delete_sale, find_sale_by_id
 from app.cli.category_menu import category_menu
 from app.services.sale_item_services import create_sale_item
 from app.cli.sale_item_menu import sale_items
+
+def update_product_menu():
+    while True:
+        print("\n--- Update Product Menu ---")
+
+        c = input("Proceed to update Product (y/n): ")
+        if c == "y":
+            product_id = int(input("Enter the Product ID of Product to update: "))
+        
+            print("1. Update name")
+            print("2. Update price")
+            print("3. Update quantity")
+            choice = input("Select an option (1-3): ")
+            
+            if choice == '1':
+                new_name = input("Enter new product name: ")
+                updated = update_product_name(product_id, new_name)
+                
+            elif choice == '2':
+                new_price = float(input("Enter new product price: "))
+                updated = update_product_price(product_id, new_price)
+            elif choice == '3':
+                new_qty = int(input("Enter new stock quantity: "))
+                updated = update_product_quantity(product_id, new_qty)
+            else:
+                print("Invalid choice.")
+                return
+
+            print("\n Product updated successfully:")
+            print(updated)
+        
+        if c == "n":
+            break
+        
 
 def products_menu():
     while True:
@@ -11,7 +45,8 @@ def products_menu():
         print("2. Search For Product by Name")
         print("3. View all Products")
         print("4. Delete product(By ID)")
-        print("5. Exit")
+        print("5. Update Products Menu")
+        print("6. Exit")
                 
         choice = input("Select an option 1 - 3: ")
                 
@@ -43,6 +78,9 @@ def products_menu():
             delete_product(item_to_del)
             
         elif choice == "5":
+            update_product_menu()
+
+        elif choice == "6":
             break
         
         else:

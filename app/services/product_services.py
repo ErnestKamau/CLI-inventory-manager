@@ -51,6 +51,7 @@ def update_product_name(product_id: int, new_name: str):
     
     product.product_name = new_name
     session.commit()
+    session.refresh(product)
     return product
 
 
@@ -65,6 +66,7 @@ def update_product_price(product_id: int, new_price: float):
     
     product.price = new_price
     session.commit()
+    session.refresh(product)
     return product
 
 def update_product_quantity(product_id: int, new_quantity: int):
@@ -78,4 +80,5 @@ def update_product_quantity(product_id: int, new_quantity: int):
     
     product.stock_quantity = new_quantity
     session.commit()
+    session.refresh(product)
     return product

@@ -30,6 +30,7 @@ def update_category_name(category_id: int, new_name: str):
     
     category.category_name = new_name
     session.commit()
+    session.refresh(category)
     return category
     
     
