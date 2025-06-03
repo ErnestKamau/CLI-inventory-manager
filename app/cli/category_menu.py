@@ -34,7 +34,7 @@ def category_menu():
         elif choice =="4":
             n = input("Name of Category to delete: ")
             delete_category(n)
-            
+           
             print("\n Removed Succesfully!")
             
         elif choice == "5":

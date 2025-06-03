@@ -5,7 +5,7 @@ def sale_items():
         print("\n ----- SALE ITEMS MENU -----")
         print("1. Get all Sale Items")
         print("2. Search for Sale Item (By ID)")
-        print("3. Getthe Sale Item's Product name (By ID)")
+        print("3. Get Sale Item's Product name (By ID)")
         print("4. Delete Sale Item")
         print("5. Exit")
         

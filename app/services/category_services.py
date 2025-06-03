@@ -20,7 +20,8 @@ def find_category_by_name(name: str):
     session = Session()
     q = session.query(Category).filter_by(category_name=name).first()
     session.close()
-    print(q)
+    return(q)
+
     
 def update_category_name(category_id: int, new_name: str):
     session = Session()
@@ -38,6 +39,9 @@ def delete_category(c_name: str):
     session = Session()
     
     d = find_category_by_name(c_name)
-    session.delete(d)
-    session.commit
-   
+    
+    if d:
+        session.delete(d)
+        session.commit()
+    else:
+        print("Category not found.")

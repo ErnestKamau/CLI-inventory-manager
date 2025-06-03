@@ -41,8 +41,8 @@ def update_product_menu():
                 return
 
             print("\n Product updated successfully:")
-            print(updated)
-        
+            
+       
         if c == "n":
             break
         

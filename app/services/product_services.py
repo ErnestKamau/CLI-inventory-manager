@@ -28,7 +28,7 @@ def find_by_id(id: int):
     p = session.query(Product).filter_by(id=id).first()
     session.close()
     return p
-    
+   
 def find_by_name(product_name: str):
     session = Session()
     product = session.query(Product).filter_by(product_name=product_name).first()
